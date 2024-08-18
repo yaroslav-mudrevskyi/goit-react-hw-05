@@ -1,0 +1,15 @@
+.image {
+  height: calc(100vh - 68px);
+  object-fit: cover;
+  position: relative;
+}
+
+.link {
+  color: #b3f3c2;
+  position: absolute;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: underline;
+}
