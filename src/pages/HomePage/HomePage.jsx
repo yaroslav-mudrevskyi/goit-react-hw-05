@@ -16,7 +16,6 @@ const HomePage = () => {
         setIsLoading(true);
         const data = await getTrendingMovies();
         setMovies(data.results);
-        console.log(data.results);
       } catch (error) {
         setIsError(error.message);
       } finally {

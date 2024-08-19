@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.input {
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid #000122;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid rgb(63, 238, 81);
+  border-radius: 16px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: rgb(3, 55, 19);
+    background-color: rgb(160, 230, 122);
+  }
+}
