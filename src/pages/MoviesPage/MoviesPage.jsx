@@ -2,35 +2,34 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieList from "../../components/MovieList/MovieList";
 import { getSearchMovie } from "../../services/moviesAPI";
+import Loader from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import s from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  // const [error, setError] = useState(false);
-  // const [loading, setLoading] = useState(false);
+
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const query = searchParams.get("query") ?? "";
 
   useEffect(() => {
-    // if (!query) return;
+    if (!query) return;
 
     const fetchData = async () => {
       try {
-        // setLoading(true);
+        setIsLoading(true);
         const data = await getSearchMovie(query);
-
         setMovies(data);
       } catch (error) {
-        console.log(error.message);
+        setIsError(error.message);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchData();
   }, [query]);
-
-  // const handleSubmit = (query) => {
-  //   searchParams.set({ query });
-  //   setSearchParams(searchParams);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,14 +48,19 @@ const MoviesPage = () => {
           type="text"
           defaultValue={query}
           name="query"
-          placeholder="Enter movie name..."
+          placeholder="Enter the name of the movie..."
         />
         <button className={s.btn} type="submit">
           Search
         </button>
       </form>
-
-      {/* <MovieList movies={movies} /> */}
+      {isLoading && <Loader />}
+      {isError && (
+        <ErrorMessage
+          title={`Something went wrong. Please, try again later! ${isError}`}
+        />
+      )}
+      <MovieList movies={movies} />
     </div>
   );
 };

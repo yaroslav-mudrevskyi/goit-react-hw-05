@@ -6,9 +6,15 @@
 }
 
 .input {
+  color: rgb(15, 13, 122);
+  width: 250px;
   padding: 6px 14px;
   border-radius: 16px;
-  border: 1px solid #000122;
+  border: 1px solid rgb(63, 238, 81);
+  outline: transparent;
+  &:focus {
+    border: 1px solid rgb(23, 144, 35);
+  }
 }
 
 .btn {
@@ -17,7 +23,7 @@
   border-radius: 16px;
   transition: all 0.3s ease-in-out;
   &:hover {
-    color: rgb(3, 55, 19);
-    background-color: rgb(160, 230, 122);
+    color: rgb(247, 246, 245);
+    background-color: rgb(8, 152, 123);
   }
 }

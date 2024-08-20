@@ -7,25 +7,24 @@ const MovieReviews = () => {
   const { movieId } = useParams();
 
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const data = await getMovieReviews(movieId);
         setReviews(data);
       } catch (error) {
-        console.log(error);
-
-        // setIsError(error.message);
+        console.log(error.message);
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     fetchData();
   }, [movieId]);
 
-  if (!reviews.length) {
+  if (!reviews.length && !isLoading) {
     return <p>We don't have any reviews for this movie</p>;
   }
 
