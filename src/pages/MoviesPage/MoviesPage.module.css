@@ -6,12 +6,14 @@
 }
 
 .input {
-  color: rgb(15, 13, 122);
   width: 250px;
   padding: 6px 14px;
   border-radius: 16px;
   border: 1px solid rgb(63, 238, 81);
   outline: transparent;
+  color: rgb(15, 13, 122);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   &:focus {
     border: 1px solid rgb(23, 144, 35);
   }
@@ -22,8 +24,10 @@
   border: 1px solid rgb(63, 238, 81);
   border-radius: 16px;
   transition: all 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   &:hover {
-    color: rgb(247, 246, 245);
-    background-color: rgb(8, 152, 123);
+    color: rgba(30, 30, 29, 0.953);
+    background-color: rgba(252, 231, 70, 0.3);
   }
 }
